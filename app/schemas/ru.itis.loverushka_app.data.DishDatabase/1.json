@@ -1,0 +1,70 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "ad26f1159c47af248dd8a4609697dd55",
+    "entities": [
+      {
+        "tableName": "dishes",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`dishId` INTEGER NOT NULL, `dishName` TEXT NOT NULL, `dishDescription` TEXT NOT NULL, `dishPhoto` TEXT NOT NULL, `dishAuthor` TEXT NOT NULL, `dishPrice` INTEGER NOT NULL, `ingredients` TEXT NOT NULL, PRIMARY KEY(`dishId`))",
+        "fields": [
+          {
+            "fieldPath": "dishId",
+            "columnName": "dishId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dishName",
+            "columnName": "dishName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dishDescription",
+            "columnName": "dishDescription",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dishPhoto",
+            "columnName": "dishPhoto",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dishAuthor",
+            "columnName": "dishAuthor",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dishPrice",
+            "columnName": "dishPrice",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ingredients",
+            "columnName": "ingredients",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "dishId"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ad26f1159c47af248dd8a4609697dd55')"
+    ]
+  }
+}

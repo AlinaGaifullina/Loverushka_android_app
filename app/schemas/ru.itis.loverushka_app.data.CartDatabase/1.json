@@ -1,0 +1,52 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "bf8014b1991ef53af9004242236f4072",
+    "entities": [
+      {
+        "tableName": "carts",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`cartId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userPhoneNumber` TEXT NOT NULL, `address` TEXT NOT NULL, `price` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "cartId",
+            "columnName": "cartId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userPhoneNumber",
+            "columnName": "userPhoneNumber",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "address",
+            "columnName": "address",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "price",
+            "columnName": "price",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "cartId"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'bf8014b1991ef53af9004242236f4072')"
+    ]
+  }
+}

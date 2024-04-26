@@ -9,5 +9,6 @@ data class Order (
     val price: Int,
     val status: String,
     val date: String,
+    val time: String,
     val payWay: String
 )

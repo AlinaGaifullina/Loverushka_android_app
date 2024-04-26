@@ -27,7 +27,7 @@ fun SwitchButton(onClick: () -> Unit, pressed: Boolean, text: String, modifier: 
     ) {
         Text(
             text = text,
-            style = MaterialTheme.typography.bodyMedium,
+            style = MaterialTheme.typography.titleMedium,
             color = if (pressed) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.primary,
             modifier = Modifier.padding(vertical = 4.dp)
         )

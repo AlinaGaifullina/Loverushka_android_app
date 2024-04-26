@@ -11,7 +11,8 @@ import com.google.gson.reflect.TypeToken
 @Entity(tableName = "carts")
 data class CartEntity(
     @PrimaryKey(autoGenerate = true)
-    val cartId: Int,
+    val cartId: Int = 0,
+
     val userPhoneNumber: String,
     val address: String,
     val dishes: List<Int>,

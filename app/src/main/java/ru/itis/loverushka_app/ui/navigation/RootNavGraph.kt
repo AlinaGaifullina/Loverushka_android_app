@@ -9,6 +9,10 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.navigation
+import ru.itis.loverushka_app.ui.navigation.graphs.authNavGraph
+import ru.itis.loverushka_app.ui.navigation.graphs.cartNavGraph
+import ru.itis.loverushka_app.ui.navigation.graphs.homeNavGraph
+import ru.itis.loverushka_app.ui.navigation.graphs.profileNavGraph
 
 
 @Composable
@@ -16,7 +20,7 @@ fun RootNavGraph(navController: NavHostController, isBottomBarVisible: MutableSt
     NavHost(
         navController = navController,
         route = Graph.ROOT,
-        startDestination = Graph.AUTHENTICATION,
+        startDestination = Graph.BOTTOM,
         modifier = Modifier
             .systemBarsPadding()
             .navigationBarsPadding()

@@ -19,6 +19,16 @@ interface CartDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCart(cart: CartEntity)
 
+    @Query("UPDATE carts SET numberOfDishes = :newNumberOfDishes WHERE userPhoneNumber = :phoneNumber")
+    suspend fun updateNumberOfDishes(phoneNumber: String, newNumberOfDishes: List<Int>)
+    @Query("UPDATE carts SET checkedDishes = :checkedDishes WHERE userPhoneNumber = :phoneNumber")
+    suspend fun updateCheckedDishes(phoneNumber: String, checkedDishes: List<Int>)
+
+    @Query("UPDATE carts SET dishes = :newDishesId, numberOfDishes = :newNumberOfDishes WHERE userPhoneNumber = :phoneNumber")
+    suspend fun deleteDishFromCart(phoneNumber: String, newDishesId: List<Int>, newNumberOfDishes: List<Int>);
+
+    @Query("UPDATE carts SET dishes = :newDishesId, numberOfDishes = :newNumberOfDishes WHERE userPhoneNumber = :phoneNumber")
+    suspend fun addDishToCart(phoneNumber: String, newDishesId: List<Int>, newNumberOfDishes: List<Int>);
     @Delete
     suspend fun deleteCart(cart: CartEntity)
 }

@@ -1,10 +1,11 @@
-package ru.itis.loverushka_app.ui.navigation
+package ru.itis.loverushka_app.ui.navigation.graphs
 
 import androidx.compose.runtime.MutableState
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import ru.itis.loverushka_app.ui.navigation.BottomNavigationItem
 import ru.itis.loverushka_app.ui.screens.profile.ProfileScreen
 
 fun NavGraphBuilder.profileNavGraph(navController: NavHostController, isBottomBarVisible: MutableState<Boolean>) {

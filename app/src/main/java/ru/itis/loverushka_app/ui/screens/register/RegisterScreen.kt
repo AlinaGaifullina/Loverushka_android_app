@@ -26,6 +26,7 @@ import ru.itis.loverushka_app.ui.components.AuthBottomText
 import ru.itis.loverushka_app.ui.components.AuthButton
 import ru.itis.loverushka_app.ui.components.AuthPasswordField
 import ru.itis.loverushka_app.ui.components.AuthTextField
+import ru.itis.loverushka_app.ui.components.PhoneTextField
 import ru.itis.loverushka_app.ui.navigation.BottomNavigationItem
 
 @Composable
@@ -84,7 +85,7 @@ private fun RegisterScreenContent(state: RegisterState, eventHandler: (RegisterE
         }
 
         Column {
-            AuthTextField(
+            PhoneTextField(
                 stringResource(id = R.string.phone),
                 state.phone
             ) { eventHandler.invoke(RegisterEvent.OnUsernameChange(it)) }

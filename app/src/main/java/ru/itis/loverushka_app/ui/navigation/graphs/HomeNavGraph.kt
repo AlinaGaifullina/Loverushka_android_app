@@ -1,4 +1,4 @@
-package ru.itis.loverushka_app.ui.navigation
+package ru.itis.loverushka_app.ui.navigation.graphs
 
 import androidx.compose.runtime.MutableState
 import androidx.navigation.NavGraphBuilder
@@ -7,6 +7,8 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import androidx.navigation.navigation
+import ru.itis.loverushka_app.ui.navigation.BottomNavigationItem
+import ru.itis.loverushka_app.ui.screens.dish_details.DishDetailsScreen
 import ru.itis.loverushka_app.ui.screens.home.HomeScreen
 
 fun NavGraphBuilder.homeNavGraph(navController: NavHostController, isBottomBarVisible: MutableState<Boolean>) {
@@ -32,9 +34,7 @@ fun NavGraphBuilder.homeNavGraph(navController: NavHostController, isBottomBarVi
             )
         ) {
             isBottomBarVisible.value = true
-//            HomeScreen(
-//                navController = navController,
-//            )
+            DishDetailsScreen(navController = navController)
         }
 
         composable(
@@ -64,11 +64,11 @@ sealed class HomeNavScreen(val route: String) {
         fun passSearchValue(searchValue: String, screenName: String) = "home_search_screen/$searchValue/$screenName"
     }
 
-    object Dish : HomeNavScreen(route = "dish/{$DISH_ID_KEY}") {
-        fun passDishId(id: Int) = "route/$id"
+    object Dish : HomeNavScreen(route = "dish_screen/{$DISH_ID_KEY}") {
+        fun passDishId(id: Int) = "dish_screen/$id"
     }
-    object Order : HomeNavScreen(route = "dish/{$ORDER_ID_KEY}") {
-        fun passOrderId(id: Int) = "route/$id"
+    object Order : HomeNavScreen(route = "order_screen/{$ORDER_ID_KEY}") {
+        fun passOrderId(id: Int) = "order_screen/$id"
     }
 
     companion object {

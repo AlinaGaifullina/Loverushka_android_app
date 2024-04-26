@@ -17,7 +17,6 @@ import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.Icon
@@ -41,7 +40,7 @@ import ru.itis.loverushka_app.R
 import ru.itis.loverushka_app.ui.components.AnimatedBackgroundImage
 import ru.itis.loverushka_app.ui.components.LocationText
 import ru.itis.loverushka_app.ui.components.SwitchButton
-import ru.itis.loverushka_app.ui.navigation.HomeNavScreen
+import ru.itis.loverushka_app.ui.navigation.graphs.HomeNavScreen
 
 @Composable
 fun ProfileScreen(
@@ -100,6 +99,7 @@ private fun LazyListScope.Publications(state: ProfileState, eventHandler: (Profi
 
 
     item {
+        Spacer(modifier = Modifier.height(16.dp))
         Text(
             text = "Люблю кушать Люблю кушать Люблю кушать Люблю кушать Люблю кушать Люблю кушать Люблю кушать Люблю кушать Люблю кушать Люблю кушать Люблю кушать Люблю кушать Люблю кушать Люблю кушать Люблю кушать Люблю кушать",
             modifier = Modifier.padding(vertical = 36.dp, horizontal = 20.dp),
@@ -112,7 +112,7 @@ private fun LazyListScope.Publications(state: ProfileState, eventHandler: (Profi
         Text(
             text = "Заказы",
             modifier = Modifier.padding(vertical = 36.dp, horizontal = 20.dp),
-            style = MaterialTheme.typography.bodyLarge,
+            style = MaterialTheme.typography.titleLarge,
             color = MaterialTheme.colorScheme.onPrimary
         )
     }
@@ -158,7 +158,7 @@ fun ProfileMainContent(state: ProfileState, eventHandler: (ProfileEvent) -> Unit
                 text = "Любитель покушать",
                 textAlign = TextAlign.Center,
                 modifier = Modifier.align(Alignment.Center),
-                style = MaterialTheme.typography.bodyLarge,
+                style = MaterialTheme.typography.titleLarge,
                 color = MaterialTheme.colorScheme.onPrimary
             )
             // Кнопка DropdownMenu
@@ -209,7 +209,7 @@ private fun ProfileStatistic(
     eventHandler: (ProfileEvent) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Row(modifier = modifier.fillMaxWidth()) {
+    Row(modifier = modifier.fillMaxWidth().padding(vertical = 8.dp)) {
         Column(
             modifier = Modifier
                 .weight(1f)
@@ -218,13 +218,13 @@ private fun ProfileStatistic(
         ) {
             Text(
                 text = "12",
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.tertiary
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onSecondary
             )
             Text(
                 text = "Избранное",
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.tertiary
+                color = MaterialTheme.colorScheme.onSecondary
             )
         }
         Column(
@@ -237,13 +237,13 @@ private fun ProfileStatistic(
         ) {
             Text(
                 text = "5",
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.tertiary
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onSecondary
             )
             Text(
                 text = "Заказы",
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.tertiary
+                color = MaterialTheme.colorScheme.onSecondary
             )
         }
     }

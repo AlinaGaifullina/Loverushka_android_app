@@ -8,9 +8,9 @@ class DeleteDishFromFavouritesUseCaseImpl(
     private val dishRepository: DishRepository,
 ) : DeleteDishFromFavouritesUseCase {
 
-    override suspend fun invoke(favourites: FavouritesEntity) : Boolean {
+    override suspend fun invoke(phoneNumber: String, dishId: Int) : Boolean {
         return try {
-            dishRepository.deleteDishFromFavourites(favourites)
+            dishRepository.deleteDishFromFavourites(phoneNumber, dishId)
         } catch (e: Exception) {
             false
         }

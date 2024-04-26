@@ -31,7 +31,7 @@ fun LocationText(city: String?, country: String?, modifier: Modifier = Modifier,
         Text(
             text = if (city == null) country!! else (if (country == null) city else "${city}, ${country}"),
             modifier = Modifier.padding(start = 8.dp),
-            style = MaterialTheme.typography.bodySmall,
+            style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onPrimary
         )
     }

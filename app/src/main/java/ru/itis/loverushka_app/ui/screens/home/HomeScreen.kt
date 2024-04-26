@@ -1,19 +1,14 @@
 package ru.itis.loverushka_app.ui.screens.home
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -23,9 +18,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -34,7 +26,7 @@ import ru.itis.loverushka_app.R
 import ru.itis.loverushka_app.ui.components.DishEntityCard
 import ru.itis.loverushka_app.ui.components.SearchTextField
 import ru.itis.loverushka_app.ui.components.SquareButton
-import ru.itis.loverushka_app.ui.navigation.HomeNavScreen
+import ru.itis.loverushka_app.ui.navigation.graphs.HomeNavScreen
 
 @Composable
 fun HomeScreen(
@@ -94,75 +86,52 @@ fun HomeScreen(
         LazyColumn(
             Modifier
                 .fillMaxSize()
-                .padding(vertical = 8.dp)
+                .padding(top = 8.dp)
         ) {
             items(state.dishes.size) {
                 DishEntityCard(
                     modifier = Modifier,
                     dish = state.dishes[it],
-                    onClick = {
+                    favouritesId = state.favouritesId,
+                    authorPhotoUrl = "https://i.pinimg.com/originals/c0/c2/16/c0c216b3743c6cb9fd67ab7df6b2c330.jpg",
+                    onCardClick = {
                         eventHandler.invoke(
                             HomeEvent.OnDishClick(
                                 state.dishes[it].dishId ?: throw IllegalArgumentException()
                             )
                         )
-                    }
+                    },
+                    onLikeClick = {
+                        eventHandler.invoke(
+                            HomeEvent.OnLikeClick(state.dishes[it].dishId)
+                        )
+                                  },
+                    onBuyClick = {
+                        eventHandler.invoke(
+                            HomeEvent.OnBuyClick(state.dishes[it].dishId)
+                        )
+                    },
+                    onPlusMinusClick = { sign ->
+                        eventHandler.invoke(
+                            HomeEvent.OnPlusMinusClick(state.dishes[it].dishId, sign)
+                        )
+                    },
+                    isBuyButtonPressed = state.cart.dishes.contains(state.dishes[it].dishId),
+                    numberOfDishes = if(state.cart.dishes.contains(state.dishes[it].dishId)){
+                        state.cart.numberOfDishes[state.cart.dishes.indexOf(state.dishes[it].dishId)]
+                    } else 0
                 )
+                Spacer(modifier = Modifier.height(8.dp))
+            }
+            item {
+                Text(text = "избранное: ")
+                Text(text = state.favouritesId.toString())
+                Text(text = "корзина: ")
+                Text(text = state.cart.dishes.toString())
+                Text(text = "количество: ")
+                Text(text = state.cart.numberOfDishes.toString())
             }
         }
-
-//        Box(
-//            modifier = Modifier
-//                .padding(top = 24.dp, bottom = 20.dp)
-//                .height(40.dp)
-//        ) {
-//            Row(
-//                modifier = Modifier
-//                    .fillMaxHeight()
-//                    .horizontalScroll(rememberScrollState()),
-//                verticalAlignment = Alignment.CenterVertically,
-//            ) {
-//                Text(
-//                    modifier = Modifier
-//                        .clickable { eventHandler.invoke(HomeEvent.OnCategoryClick(ALL_ROUTES)) },
-//                    text = stringResource(id = R.string.all_routes),
-//                    style = WanderlustTheme.typography.bold20,
-//                    color = if (state.selectedCategory == ALL_ROUTES) WanderlustTheme.colors.primaryText else WanderlustTheme.colors.secondaryText
-//                )
-//                Text(
-//                    modifier = Modifier
-//                        .padding(horizontal = 24.dp)
-//                        .clickable { eventHandler.invoke(HomeEvent.OnCategoryClick(ALL_PLACES)) },
-//                    text = stringResource(id = R.string.all_places),
-//                    style = WanderlustTheme.typography.bold20,
-//                    color = if (state.selectedCategory == ALL_PLACES) WanderlustTheme.colors.primaryText else WanderlustTheme.colors.secondaryText
-//                )
-//
-//                Text(
-//                    modifier = Modifier
-//                        .clickable { eventHandler.invoke(HomeEvent.OnCategoryClick(FAVOURITE_ROUTES)) },
-//                    text = stringResource(id = R.string.favourites),
-//                    style = WanderlustTheme.typography.bold20,
-//                    color = if (state.selectedCategory == FAVOURITE_ROUTES) WanderlustTheme.colors.primaryText else WanderlustTheme.colors.secondaryText
-//                )
-//
-//                Spacer(modifier = Modifier.width(120.dp))
-//            }
-//            Box(
-//                modifier = Modifier
-//                    .align(Alignment.CenterEnd)
-//                    .fillMaxHeight()
-//                    .width(160.dp)
-//                    .background(
-//                        brush = Brush.horizontalGradient(
-//                            colors = listOf(
-//                                Color.Transparent,
-//                                WanderlustTheme.colors.primaryBackground
-//                            )
-//                        )
-//                    )
-//            )
-//        }
 
         if (state.isLoading) {
             Box(

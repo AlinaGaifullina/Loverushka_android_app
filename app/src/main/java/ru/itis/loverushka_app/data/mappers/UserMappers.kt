@@ -13,14 +13,14 @@ fun User.toUserEntity(): UserEntity =
 fun UserEntity.toUser(): User =
     User(firstName, lastName, phoneNumber, password, country, city, cartId, ordersId)
 
-//fun Cart.toCartEntity(): CartEntity =
-//    CartEntity(cartId, userPhoneNumber, address, dishes, price, checkedDishes, numberOfDishes )
-//
-//fun CartEntity.toCart(): Cart =
-//    Cart(cartId, userPhoneNumber, address, dishes, price, checkedDishes, numberOfDishes)
-//
-//fun Order.toOrderEntity(): OrderEntity =
-//    OrderEntity(orderId, userPhoneNumber, address, dishes, numberOfDishes, price, status, date, payWay)
-//
-//fun OrderEntity.toOrder(): Order =
-//    Order(orderId, userPhoneNumber, address, dishes, numberOfDishes, price, status, date, payWay)
+fun Cart.toCartEntity(): CartEntity =
+    CartEntity(cartId, userPhoneNumber, address, dishes, price, checkedDishes, numberOfDishes )
+
+fun CartEntity.toCart(): Cart =
+    Cart(cartId, userPhoneNumber, address, dishes, price, checkedDishes, numberOfDishes)
+
+fun Order.toOrderEntity(): OrderEntity =
+    OrderEntity(orderId, userPhoneNumber, address, dishes, numberOfDishes, price, status, date, time, payWay)
+
+fun OrderEntity.toOrder(): Order =
+    Order(orderId, userPhoneNumber, address, dishes, numberOfDishes, price, status, date, time, payWay)

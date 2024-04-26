@@ -15,14 +15,12 @@ import ru.itis.loverushka_app.domain.model.Dish
 import ru.itis.loverushka_app.domain.model.Order
 import ru.itis.loverushka_app.domain.repository.DishRepository
 import ru.itis.loverushka_app.domain.repository.UserRepository
-import ru.itis.loverushka_app.ui.navigation.ProfileNavScreen
+import ru.itis.loverushka_app.ui.navigation.graphs.ProfileNavScreen
 import javax.annotation.concurrent.Immutable
 import javax.inject.Inject
 
 @Immutable
 data class ProfileState(
-//    val isSelfProfile: Boolean = false,
-//    val isSubscribe: Boolean = false,
     val userPhone: String = "",
     val userFirstName: String = "",
     val userLastName: String = "",

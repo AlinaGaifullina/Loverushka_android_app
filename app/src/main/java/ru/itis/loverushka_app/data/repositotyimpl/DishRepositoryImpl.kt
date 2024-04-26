@@ -58,9 +58,9 @@ class DishRepositoryImpl @Inject constructor(
 //        return favouritesDb.favouritesCoreDao().getFavouritesByUsername(username)
 //    }
 
-    override suspend fun deleteDishFromFavourites(favourites: FavouritesEntity) : Boolean {
+    override suspend fun deleteDishFromFavourites(phoneNumber: String, dishId: Int) : Boolean {
         return try {
-            favouritesDb.favouritesDao().deleteFavourites(favourites)
+            favouritesDb.favouritesDao().deleteFavourites(phoneNumber, dishId)
             true
         } catch (e: Exception) {
             false

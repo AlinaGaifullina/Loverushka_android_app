@@ -33,7 +33,7 @@ fun AuthTextField(label: String, value: String, onChange: (String) -> Unit) {
                 .fillMaxWidth(),
             shape = RoundedCornerShape(30.dp),
             keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Phone,
+                keyboardType = KeyboardType.Text,
                 imeAction = ImeAction.Done,
             ),
             singleLine = true,

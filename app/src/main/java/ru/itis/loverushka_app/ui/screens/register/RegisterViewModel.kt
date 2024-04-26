@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import ru.itis.loverushka_app.domain.model.RegisterResult
+import ru.itis.loverushka_app.domain.usecase.AddCartUseCase
 import ru.itis.loverushka_app.domain.usecase.RegisterUserUseCase
 import javax.inject.Inject
 
@@ -48,6 +49,7 @@ sealed interface RegisterEvent {
 class RegisterViewModel @Inject constructor(
     //private val isUsernameExist: CheckUsernameUseCase,
     private val register: RegisterUserUseCase,
+    private val addCartUseCase: AddCartUseCase
 ) : ViewModel(){
     private val _state: MutableStateFlow<RegisterState> = MutableStateFlow(
         RegisterState()
@@ -118,6 +120,7 @@ class RegisterViewModel @Inject constructor(
 
             when (result) {
                 is RegisterResult.SuccessRegister -> {
+                    addCartUseCase(_state.value.phone, "г. Казань, ул. Черноморская, д. 5, кв. 42")
                     _action.emit(RegisterSideEffect.NavigateProfile)
                 }
 

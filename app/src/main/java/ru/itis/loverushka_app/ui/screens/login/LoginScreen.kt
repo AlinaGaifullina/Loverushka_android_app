@@ -7,7 +7,7 @@ import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
-import ru.itis.loverushka_app.ui.navigation.AuthScreen
+import ru.itis.loverushka_app.ui.navigation.graphs.AuthScreen
 import ru.itis.loverushka_app.ui.navigation.BottomNavigationItem
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

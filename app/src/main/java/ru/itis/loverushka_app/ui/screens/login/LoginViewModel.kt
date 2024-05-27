@@ -9,10 +9,8 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
-import ru.itis.loverushka_app.domain.model.Dish
-import ru.itis.loverushka_app.domain.model.LoginResult
+import ru.itis.loverushka_app.domain.model.results.LoginResult
 import ru.itis.loverushka_app.domain.repository.DishRepository
-import ru.itis.loverushka_app.domain.usecase.GetAllDishesUseCase
 import ru.itis.loverushka_app.domain.usecase.LoginUserUseCase
 import javax.inject.Inject
 

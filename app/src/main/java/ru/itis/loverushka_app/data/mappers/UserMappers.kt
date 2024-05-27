@@ -17,10 +17,10 @@ fun Cart.toCartEntity(): CartEntity =
     CartEntity(cartId, userPhoneNumber, address, dishes, price, checkedDishes, numberOfDishes )
 
 fun CartEntity.toCart(): Cart =
-    Cart(cartId, userPhoneNumber, address, dishes, price, checkedDishes, numberOfDishes)
+    Cart(cartId, phoneNumber, addressId, dishes, price, checkedDishes, numberOfDishes)
 
 fun Order.toOrderEntity(): OrderEntity =
-    OrderEntity(orderId, userPhoneNumber, address, dishes, numberOfDishes, price, status, date, time, payWay)
+    OrderEntity(orderId, phoneNumber, address, dishes, numberOfDishes, price, status, date, time, payWay)
 
 fun OrderEntity.toOrder(): Order =
-    Order(orderId, userPhoneNumber, address, dishes, numberOfDishes, price, status, date, time, payWay)
+    Order(orderId, phoneNumber, address, dishes, numberOfDishes, price, status, date, time, payWay)

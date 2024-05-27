@@ -1,7 +1,6 @@
 package ru.itis.loverushka_app.ui.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -12,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -93,7 +91,7 @@ fun DishEntityCard(
                         modifier = Modifier
                             .padding(4.dp)
                             .clip(RoundedCornerShape(12.dp)),
-                        model = dish.dishPhoto,
+                        model = dish.photo,
                         contentDescription = "photo",
                         contentScale = ContentScale.Crop
                     )
@@ -121,7 +119,7 @@ fun DishEntityCard(
                     }
                     Text(
                         modifier = Modifier.padding(start = 8.dp),
-                        text = dish.dishAuthor,
+                        text = dish.authorId,
                         style = MaterialTheme.typography.titleSmall,
                         color = MaterialTheme.colorScheme.onTertiary
                     )

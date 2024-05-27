@@ -13,7 +13,7 @@ interface OrderDao {
     @Query("select * from orders where orderId = :orderId")
     suspend fun getOrderById(orderId: Int): OrderEntity
 
-    @Query("select * from orders where userPhoneNumber = :phoneNumber")
+    @Query("select * from orders where phoneNumber = :phoneNumber")
     suspend fun getOrdersByPhoneNumber(phoneNumber: String): List<OrderEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

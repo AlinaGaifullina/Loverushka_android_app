@@ -102,7 +102,7 @@ fun DishInCartCard(
                                 .height(86.dp)
                                 .width(120.dp)
                                 .align(Alignment.Center),
-                            model = dish.dishPhoto,
+                            model = dish.photo,
                             contentDescription = "photo",
                             clipToBounds = true,
                             contentScale = ContentScale.FillBounds
@@ -116,7 +116,7 @@ fun DishInCartCard(
                         horizontalAlignment = Alignment.Start
                     ) {
                         Text(
-                            text = "${dish.dishPrice} р.",
+                            text = "${dish.price} р.",
                             style = MaterialTheme.typography.titleMedium,
                             color = MaterialTheme.colorScheme.onTertiary
                         )

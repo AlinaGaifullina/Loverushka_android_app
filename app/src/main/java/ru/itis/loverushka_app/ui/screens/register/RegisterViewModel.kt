@@ -1,6 +1,5 @@
 package ru.itis.loverushka_app.ui.screens.register
 
-import androidx.compose.runtime.Immutable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -10,7 +9,7 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
-import ru.itis.loverushka_app.domain.model.RegisterResult
+import ru.itis.loverushka_app.domain.model.results.RegisterResult
 import ru.itis.loverushka_app.domain.usecase.AddCartUseCase
 import ru.itis.loverushka_app.domain.usecase.RegisterUserUseCase
 import javax.inject.Inject

@@ -1,6 +1,6 @@
 package ru.itis.loverushka_app.data.usecaseimpl
 
-import ru.itis.loverushka_app.domain.model.LoginResult
+import ru.itis.loverushka_app.domain.model.results.LoginResult
 import ru.itis.loverushka_app.domain.repository.UserRepository
 import ru.itis.loverushka_app.domain.usecase.LoginUserUseCase
 

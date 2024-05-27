@@ -5,9 +5,7 @@ import ru.itis.loverushka_app.domain.model.Order
 interface OrderRepository {
 
     suspend fun getOrderById(orderId: Int): Order
-
     suspend fun getOrdersByPhoneNumber(phoneNumber: String): List<Order>
-
     suspend fun addOrder(
         phoneNumber: String,
         address: String,

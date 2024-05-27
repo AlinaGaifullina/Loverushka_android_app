@@ -4,10 +4,10 @@ package ru.itis.loverushka_app.domain.model
 data class Dish(
 
     val dishId: Int,
-    val dishName: String,
-    val dishDescription: String,
-    val dishPhoto: String,
-    val dishAuthor: String,
-    val dishPrice: Int,
+    val name: String,
+    val description: String,
+    val photo: String,
+    val authorId: String,
+    val price: Int,
     val ingredients: String
 )

@@ -17,5 +17,7 @@ data class UserEntity(
     val country: String,
     val city: String,
     val cartId: Int,
-    val ordersId: List<Int>
+    val ordersId: List<Int>,
+    val role: RoleEntity,
+    val creationDate: String
 )

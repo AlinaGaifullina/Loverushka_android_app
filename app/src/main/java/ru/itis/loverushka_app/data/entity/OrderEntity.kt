@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class OrderEntity(
     @PrimaryKey(autoGenerate = true)
     val orderId: Int = 1,
-    val userPhoneNumber: String,
+    val phoneNumber: String,
     val address: String,
     val dishes: List<Int>,
     val numberOfDishes: List<Int>,
@@ -15,5 +15,6 @@ data class OrderEntity(
     val status: String,
     val date: String,
     val time: String,
-    val payWay: String
+    val payWay: String,
+    val courierId: Int
 )

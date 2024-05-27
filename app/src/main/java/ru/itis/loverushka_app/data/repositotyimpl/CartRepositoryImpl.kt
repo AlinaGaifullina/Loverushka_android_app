@@ -21,10 +21,11 @@ class CartRepositoryImpl @Inject constructor(
     }
 
     override suspend fun addCart(phoneNumber: String, address: String) {
+        val address1 = 1
         return cartDb.cartDao().insertCart(
             CartEntity(
-                userPhoneNumber = phoneNumber,
-                address = address,
+                phoneNumber = phoneNumber,
+                addressId = address1,
                 dishes = listOf(),
                 price = 0,
                 checkedDishes = listOf(),
@@ -41,19 +42,11 @@ class CartRepositoryImpl @Inject constructor(
         return cartDb.cartDao().updateCheckedDishes(phoneNumber, checkedDishes)
     }
 
-    override suspend fun deleteDishFromCart(
-        phoneNumber: String,
-        newDishesId: List<Int>,
-        newNumberOfDishes: List<Int>
-    ) {
+    override suspend fun deleteDishFromCart(phoneNumber: String, newDishesId: List<Int>, newNumberOfDishes: List<Int>) {
         return cartDb.cartDao().deleteDishFromCart(phoneNumber, newDishesId, newNumberOfDishes)
     }
 
-    override suspend fun addDishToCart(
-        phoneNumber: String,
-        newDishesId: List<Int>,
-        newNumberOfDishes: List<Int>
-    ) {
+    override suspend fun addDishToCart(phoneNumber: String, newDishesId: List<Int>, newNumberOfDishes: List<Int>) {
         return cartDb.cartDao().addDishToCart(phoneNumber, newDishesId, newNumberOfDishes)
     }
 

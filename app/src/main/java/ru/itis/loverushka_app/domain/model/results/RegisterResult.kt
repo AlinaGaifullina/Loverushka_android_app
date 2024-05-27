@@ -1,4 +1,4 @@
-package ru.itis.loverushka_app.domain.model
+package ru.itis.loverushka_app.domain.model.results
 
 sealed interface RegisterResult {
     data class SuccessRegister(val phoneNumber: String) : RegisterResult

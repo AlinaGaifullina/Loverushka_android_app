@@ -20,7 +20,7 @@ fun RootNavGraph(navController: NavHostController, isBottomBarVisible: MutableSt
     NavHost(
         navController = navController,
         route = Graph.ROOT,
-        startDestination = Graph.BOTTOM,
+        startDestination = Graph.AUTHENTICATION,
         modifier = Modifier
             .systemBarsPadding()
             .navigationBarsPadding()

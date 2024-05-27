@@ -123,14 +123,6 @@ fun HomeScreen(
                 )
                 Spacer(modifier = Modifier.height(8.dp))
             }
-            item {
-                Text(text = "избранное: ")
-                Text(text = state.favouritesId.toString())
-                Text(text = "корзина: ")
-                Text(text = state.cart.dishes.toString())
-                Text(text = "количество: ")
-                Text(text = state.cart.numberOfDishes.toString())
-            }
         }
 
         if (state.isLoading) {

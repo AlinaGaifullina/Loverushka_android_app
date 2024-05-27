@@ -10,5 +10,7 @@ data class User(
     val country: String,
     val city: String,
     val cartId: Int,
-    val ordersId: List<Int>
+    val ordersId: List<Int>,
+    val creationDate: String,
+    val role: Role
 )

@@ -1,10 +1,7 @@
 package ru.itis.loverushka_app.ui.screens.make_order
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.rememberScrollableState
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -32,7 +29,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -42,12 +38,9 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import ru.itis.loverushka_app.R
 import ru.itis.loverushka_app.ui.components.AuthButton
-import ru.itis.loverushka_app.ui.components.DishInCartCard
 import ru.itis.loverushka_app.ui.navigation.graphs.CartNavScreen
 import ru.itis.loverushka_app.ui.navigation.graphs.HomeNavScreen
-import ru.itis.loverushka_app.ui.screens.cart.CartEvent
 import ru.itis.loverushka_app.ui.screens.home.HomeSideEffect
-import ru.itis.loverushka_app.ui.screens.login.LoginEvent
 
 @Composable
 fun MakeOrderScreen(
@@ -69,7 +62,7 @@ fun MakeOrderScreen(
                 navController.navigate(HomeNavScreen.Dish.passDishId((action as HomeSideEffect.NavigateToDishDetailsScreen).id))
             }
             is MakeOrderSideEffect.NavigateToOrderDetailsScreen -> {
-                //navController.navigate(HomeNavScreen.Dish.passDishId((action as HomeSideEffect.NavigateToDishDetailsScreen).id))
+                navController.navigate(CartNavScreen.OrderDetails.passOrderId((action as MakeOrderSideEffect.NavigateToOrderDetailsScreen).cartId))
             }
             is MakeOrderSideEffect.NavigateToCartScreen -> {
                 navController.navigate(CartNavScreen.Cart.route)
@@ -128,14 +121,6 @@ fun MakeOrderScreen(
             color = MaterialTheme.colorScheme.onPrimary
         )
         Spacer(modifier = Modifier.height(16.dp))
-
-//        Divider(
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .padding(vertical = 16.dp),
-//            thickness = 3.dp,
-//            color = MaterialTheme.colorScheme.secondary
-//        )
 
         Box (
             modifier = Modifier
@@ -202,14 +187,14 @@ fun MakeOrderScreen(
                                         .clip(RoundedCornerShape(12.dp))
                                         .align(Alignment.Center),
                                     //.size(width = 180.dp, height = 140.dp),
-                                    model = dish.dishPhoto,
+                                    model = dish.photo,
                                     contentDescription = "photo",
                                     clipToBounds = true,
                                     contentScale = ContentScale.FillBounds,
                                 )
                             }
                             Text(
-                                text = "${state.data.numberOfDishes[state.data.dishes.indexOf(dish.dishId)]} * ${dish.dishPrice} р.",
+                                text = "${state.data.numberOfDishes[state.data.dishes.indexOf(dish.dishId)]} * ${dish.price} р.",
                                 textAlign = TextAlign.Center,
                                 modifier = Modifier
                                     .fillMaxWidth()
@@ -321,7 +306,7 @@ fun MakeOrderScreen(
                             text = "${
                                 state.dishes
                                     .filter { state.data.checkedDishes.contains(it.dishId) }
-                                    .sumOf { dish -> (dish.dishPrice * state.data.numberOfDishes[state.data.dishes.indexOf(dish.dishId)]) }
+                                    .sumOf { dish -> (dish.price * state.data.numberOfDishes[state.data.dishes.indexOf(dish.dishId)]) }
                             } р.",
                             modifier = Modifier,
                             style = MaterialTheme.typography.bodyMedium,
@@ -366,7 +351,7 @@ fun MakeOrderScreen(
                             text = "${
                                 state.dishes
                                     .filter { state.data.checkedDishes.contains(it.dishId) }
-                                    .sumOf { dish -> (dish.dishPrice * state.data.numberOfDishes[state.data.dishes.indexOf(dish.dishId)]) } + 95
+                                    .sumOf { dish -> (dish.price * state.data.numberOfDishes[state.data.dishes.indexOf(dish.dishId)]) } + 95
                             } р.",
                             modifier = Modifier,
                             style = MaterialTheme.typography.titleMedium,

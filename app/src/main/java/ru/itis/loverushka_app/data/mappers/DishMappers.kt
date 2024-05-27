@@ -6,10 +6,10 @@ import ru.itis.loverushka_app.domain.model.Dish
 import ru.itis.loverushka_app.domain.model.Favourites
 
 fun Dish.toDishEntity(): DishEntity =
-    DishEntity(dishId, dishName, dishDescription, dishPhoto, dishAuthor, dishPrice, ingredients)
+    DishEntity(dishId, dishName, description, photo, authorId, price, ingredients)
 
 fun DishEntity.toDish(): Dish =
-    Dish(dishId, dishName, dishDescription, dishPhoto, dishAuthor, dishPrice, ingredients)
+    Dish(dishId, name, description, photo, author, price, ingredients)
 
 fun Favourites.toFavouritesEntity(): FavouritesEntity =
     FavouritesEntity(dishId, phoneNumber, dishId)

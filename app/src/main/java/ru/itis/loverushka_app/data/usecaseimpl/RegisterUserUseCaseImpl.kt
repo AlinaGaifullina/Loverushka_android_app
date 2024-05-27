@@ -1,6 +1,6 @@
 package ru.itis.loverushka_app.data.usecaseimpl
 
-import ru.itis.loverushka_app.domain.model.RegisterResult
+import ru.itis.loverushka_app.domain.model.results.RegisterResult
 import ru.itis.loverushka_app.domain.model.User
 import ru.itis.loverushka_app.domain.repository.UserRepository
 import ru.itis.loverushka_app.domain.usecase.RegisterUserUseCase

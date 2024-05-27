@@ -10,7 +10,7 @@ import ru.itis.loverushka_app.data.entity.DishEntity
 @Dao
 interface DishDao{
 
-    @Query("select * from dishes where dishName = :dishName")
+    @Query("select * from dishes where name = :dishName")
     suspend fun getDishByName(dishName: String): DishEntity
 
     @Query("select * from dishes where dishId = :dishId")

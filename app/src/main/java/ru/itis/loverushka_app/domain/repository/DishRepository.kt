@@ -9,6 +9,7 @@ interface DishRepository {
     suspend fun getAllDishes() : List<Dish>
     suspend fun getDishById(dishId: Int) : Dish
     suspend fun addDish(dish: Dish) : Boolean
+
     suspend fun getFavouritesByUserNumber(phoneNumber: String) : List<FavouritesEntity>
     suspend fun addDishToFavourites(phoneNumber: String, dishId: Int) : Boolean
     suspend fun deleteDishFromFavourites(phoneNumber: String, dishId: Int) : Boolean

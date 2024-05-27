@@ -31,7 +31,7 @@ class OrderRepositoryImpl @Inject constructor(
     ) {
         orderDb.orderDao().insertOrder(
             OrderEntity(
-                userPhoneNumber = phoneNumber,
+                phoneNumber = phoneNumber,
                 address = address,
                 dishes = dishes,
                 numberOfDishes = numberOfDishes,

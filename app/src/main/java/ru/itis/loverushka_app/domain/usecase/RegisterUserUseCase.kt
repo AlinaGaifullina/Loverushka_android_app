@@ -1,6 +1,6 @@
 package ru.itis.loverushka_app.domain.usecase
 
-import ru.itis.loverushka_app.domain.model.RegisterResult
+import ru.itis.loverushka_app.domain.model.results.RegisterResult
 
 interface RegisterUserUseCase {
 
